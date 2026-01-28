@@ -4,7 +4,13 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = require "configs.mason-lspconfig",
+  },
+  {
+    "mfussenegger/nvim-jdtls",
+  },
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
