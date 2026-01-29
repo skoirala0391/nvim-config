@@ -4,7 +4,9 @@ local options = {
     "cssls",
     "ts_ls",
     "eslint",
-    "pyright"
+    "pyright",
+    "rust_analyzer",
+    "clangd"
   },
   automatic_enable = {
     exclude = {

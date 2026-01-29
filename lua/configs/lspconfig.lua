@@ -1,5 +1,29 @@
 require("nvchad.configs.lspconfig").defaults()
 
+-- clangd config (recommended)
+vim.lsp.config("clangd", {
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--completion-style=detailed",
+    "--header-insertion=iwyu",
+    "--pch-storage=memory",
+  },
+})
+
+-- Rust Analyzer configuration (optional but recommended)
+vim.lsp.config("rust_analyzer", {
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = { allFeatures = true },
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+})
+
 -- Pyright configuration (IntelliSense tuning)
 vim.lsp.config("pyright", {
   settings = {
@@ -19,7 +43,9 @@ local servers = {
   "cssls",
   "ts_ls",
   "eslint",
-  "pyright"
+  "pyright",
+  "rust_analyzer",
+  "clangd"
 }
 vim.lsp.enable(servers)
 

@@ -18,7 +18,17 @@ return {
       require "configs.lspconfig"
     end,
   },
-
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    lazy = false,
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    config = function()
+      require("configs.dap")
+    end,
+  },
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
