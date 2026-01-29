@@ -43,7 +43,6 @@ end, { desc = "Java: Extract Method" })
 -- end, { desc = "Java: Generate Getters/Setters" })
 
 -- LSP Navigation & Info
-map("n", "K", function() vim.lsp.buf.hover() end, { desc = "LSP: Hover Info" })
 map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "LSP: Go to Definition" })
 map("n", "gi", function() vim.lsp.buf.implementation() end, { desc = "LSP: Go to Implementation" })
 map("n", "gr", function() vim.lsp.buf.references() end, { desc = "LSP: Show References" })

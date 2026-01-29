@@ -136,10 +136,9 @@ local function java_keymaps(bufnr)
   end, "Java: Test class")
 
   map("n", "<leader>jg", function()
-    vim.lsp.buf.code_action({
-      apply = false,
-    })
-  end, { buffer = bufnr, desc = "Java: Generate (getters/setters)" })
+    vim.lsp.buf.code_action({ apply = false })
+  end, "Java: Generate (getters/setters)")
+
   -- General DAP shortcuts (nice to have)
   map("n", "<F5>", function() require("dap").continue() end, "DAP: Continue")
   map("n", "<F10>", function() require("dap").step_over() end, "DAP: Step over")
@@ -169,12 +168,25 @@ function M.setup()
     cmd = { "jdtls", "-data", workspace_dir() },
     root_dir = root_dir,
 
+    capabilities = vim.tbl_deep_extend(
+      "force",
+      vim.lsp.protocol.make_client_capabilities(),
+      {
+        textDocument = {
+          signatureHelp = {
+            dynamicRegistration = false,
+          },
+        },
+      }
+    ),
+
     init_options = {
       bundles = jdtls_bundles(),
     },
 
     settings = {
       java = {
+        signatureHelp = { enabled = true },
         -- You can add java settings here later if you want
       },
     },
