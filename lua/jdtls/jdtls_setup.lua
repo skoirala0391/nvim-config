@@ -135,6 +135,11 @@ local function java_keymaps(bufnr)
     require("jdtls").test_class()
   end, "Java: Test class")
 
+  map("n", "<leader>jg", function()
+    vim.lsp.buf.code_action({
+      apply = false,
+    })
+  end, { buffer = bufnr, desc = "Java: Generate (getters/setters)" })
   -- General DAP shortcuts (nice to have)
   map("n", "<F5>", function() require("dap").continue() end, "DAP: Continue")
   map("n", "<F10>", function() require("dap").step_over() end, "DAP: Step over")
