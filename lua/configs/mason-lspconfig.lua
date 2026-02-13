@@ -5,7 +5,6 @@ local options = {
     "ts_ls",
     "eslint",
     "pyright",
-    "rust_analyzer",
     "clangd"
   },
   automatic_enable = {

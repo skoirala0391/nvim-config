@@ -7,22 +7,26 @@ vim.lsp.config("clangd", {
     "--background-index",
     "--clang-tidy",
     "--completion-style=detailed",
-    "--header-insertion=iwyu",
+    -- "--header-insertion=iwyu",
+    "--header-insertion=never",
     "--pch-storage=memory",
   },
 })
 
--- Rust Analyzer configuration (optional but recommended)
-vim.lsp.config("rust_analyzer", {
-  settings = {
-    ["rust-analyzer"] = {
-      cargo = { allFeatures = true },
-      checkOnSave = {
-        command = "clippy",
+vim.g.rustaceanvim = {
+  server = {
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          allFeatures = true,
+        },
+        checkOnSave = {
+          command = "clippy",
+        },
       },
     },
   },
-})
+}
 
 -- Pyright configuration (IntelliSense tuning)
 vim.lsp.config("pyright", {
@@ -44,7 +48,6 @@ local servers = {
   "ts_ls",
   "eslint",
   "pyright",
-  "rust_analyzer",
   "clangd"
 }
 vim.lsp.enable(servers)
