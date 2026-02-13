@@ -13,21 +13,6 @@ vim.lsp.config("clangd", {
   },
 })
 
-vim.g.rustaceanvim = {
-  server = {
-    settings = {
-      ["rust-analyzer"] = {
-        cargo = {
-          allFeatures = true,
-        },
-        checkOnSave = {
-          command = "clippy",
-        },
-      },
-    },
-  },
-}
-
 -- Pyright configuration (IntelliSense tuning)
 vim.lsp.config("pyright", {
   settings = {

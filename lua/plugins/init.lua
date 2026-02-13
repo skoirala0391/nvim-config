@@ -15,6 +15,10 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^5",
     ft = { "rust" },
+    init = function()
+      local cfg = require("configs.rustaceanvim")
+      vim.g.rustaceanvim = cfg.opts
+    end,
   },
   -- These are some examples, uncomment them if you want to see them work!
   {
