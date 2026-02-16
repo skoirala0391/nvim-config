@@ -5,6 +5,14 @@ return {
     opts = require "configs.conform",
   },
   {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvimtree",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = require "configs.telescope",
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
     opts = require "configs.mason-lspconfig",
   },
