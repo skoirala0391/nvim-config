@@ -14,19 +14,24 @@ M.base46 = {
 	-- },
 }
 
-vim.opt.clipboard = "unnamedplus"
+local is_ssh = vim.env.SSH_CONNECTION ~= nil
+local is_tmux = vim.env.TMUX ~= nil
 
-vim.g.clipboard = {
-  name = "osc52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-  },
-}
+if is_ssh or is_tmux then
+  vim.g.clipboard = {
+    name = "osc52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+  }
+else
+  vim.opt.clipboard = "unnamedplus"
+end
 
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {
