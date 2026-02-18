@@ -4,10 +4,10 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = require "configs.nvimtree",
-  },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   opts = require "configs.nvimtree",
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     opts = require "configs.telescope",
